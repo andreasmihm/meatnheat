@@ -1,0 +1,18 @@
+<div class="top-navigation">
+  <a class="top-navigation-item" href="/">Home</a>
+  <a class="top-navigation.item" href="/profile">Profile</a>
+  <div class="top-navigation-search">
+    <input type="search" placeholder="search" [(ngModel)]="searchInputValue" (ngModelChange)="searchInput($event)">
+    <ul class="search-result-list" style="color: #fff;">
+      <li *ngFor="let entry of searchResults" class="search-result-list-item">{{entry._source.title}}</li>
+    </ul>
+  </div>
+
+  <a class="top-navigation-burger" (click)="toggleMenu()">=</a>
+
+  <div class="side-navigation">
+    <a class="top-navigation-item" href="/">Home</a>
+    <a class="top-navigation-item" href="/about">About</a>
+  </div>
+</div>
+

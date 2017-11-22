@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,body {
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Barlow', sans-serif;
+}
+
+
+/* navigation related */
+
+.main-content {
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+  position: absolute;
+  width: 100%;
+}
+
+[nav-open="true"] .main-content {
+  transform: translateX(-150px);
+}
+
+/* basic layout */
+
+.container {
+  margin: 2.5rem;
+}

@@ -1,0 +1,52 @@
+.top-navigation {
+  background-color: #000;
+  padding: 1rem;
+
+  transform: translateX(0px);
+  transition: transform 0.5s ease;
+
+  .top-navigation-item {
+    padding-left: 2rem;
+  }
+
+  .top-navigation-burger {
+    float: right;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.side-navigation {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 300px;
+  height: 100vh;
+}
+
+/*[nav-open="true"] .side-navigation,*/
+[nav-open="true"] .top-navigation {
+  transform: translateX(-150px);
+}
+
+// desktop dropdown
+.top-navigation-search {
+  position: relative;
+
+  .search-result-list {
+    position: absolute;
+    z-index: 10000;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    &-item {
+      background-color: #000000;
+    }
+  }
+}
