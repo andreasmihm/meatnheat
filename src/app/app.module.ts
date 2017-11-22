@@ -8,12 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
-import { SearchService } from './search.service'
+import { SearchService } from './search.service';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

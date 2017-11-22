@@ -1,6 +1,6 @@
 <div class="top-navigation">
-  <a class="top-navigation-item" href="/">Home</a>
-  <a class="top-navigation.item" href="/profile">Profile</a>
+  <a class="top-navigation-item" routerLink="/">Home</a>
+  <a class="top-navigation.item" routerLink="/login">Login</a>
   <div class="top-navigation-search">
     <input type="search" placeholder="search" [(ngModel)]="searchInputValue" (ngModelChange)="searchInput($event)">
     <ul class="search-result-list" style="color: #fff;">
@@ -11,8 +11,8 @@
   <a class="top-navigation-burger" (click)="toggleMenu()">=</a>
 
   <div class="side-navigation">
-    <a class="top-navigation-item" href="/">Home</a>
-    <a class="top-navigation-item" href="/about">About</a>
+    <a class="top-navigation-item" routerLink="/">Home</a>
+    <a class="top-navigation-item" routerLink="/login">Login</a>
   </div>
 </div>
 
