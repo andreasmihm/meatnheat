@@ -9,6 +9,10 @@ export class SearchService {
   // process search request
   processSearch(query:string){
 
+    if(query && query.length > 1){
+      query = query + "~1";
+    }
+
     let searchRequestBody = {
       query: {
         query_string: {
