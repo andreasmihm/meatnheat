@@ -23,7 +23,7 @@ export class NavigationComponent implements OnInit {
 
   searchInput(value){
     this.searchService.processSearch(value).subscribe(data => {
-        this.searchResults = data.hits.hits;
+        this.searchResults = data["hits"]["hits"];
         console.log(this.searchResults);
     });
   }

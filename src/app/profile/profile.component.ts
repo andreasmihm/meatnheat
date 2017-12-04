@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import * as AWS from 'aws-sdk';
+import { ProfileService } from './../services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,10 +9,20 @@ import * as AWS from 'aws-sdk';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private profileService:ProfileService) { }
+
+  signInUserName:string;
+  signInPassword:string;
+
+  userPool:any;
 
   ngOnInit() {
-    
+    this.userPool
   }
 
+  signIn(){
+    console.log("blub: " + this.signInUserName + " / " + this.signInPassword);
+
+    this.profileService.signIn(this.signInUserName,this.signInPassword);
+  }
 }

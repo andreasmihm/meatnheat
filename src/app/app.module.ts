@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component'
 
 import { SearchService } from './search.service';
-
+import { ProfileService } from './services/profile.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,10 @@ import { SearchService } from './search.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [SearchService],
+  providers: [
+    SearchService,
+    ProfileService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
