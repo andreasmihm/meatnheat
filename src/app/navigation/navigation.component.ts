@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-import { SearchService } from './../search.service'
+import { SearchService } from './../search.service';
+import { ProfileService } from '../services/profile.service';
 
 //import _ from "lodash";
 
@@ -15,7 +16,11 @@ export class NavigationComponent implements OnInit {
   navigationOpen: boolean = false;
   searchResults:any[] = [];
 
-  constructor(@Inject(DOCUMENT) private document: any, private searchService:SearchService) { }
+  constructor(
+    @Inject(DOCUMENT) private document: any, 
+    private searchService:SearchService,
+    private profileService:ProfileService
+  ) { }
 
   ngOnInit() {
     console.log("init navigation Component");
@@ -31,5 +36,9 @@ export class NavigationComponent implements OnInit {
   toggleMenu(){
     this.navigationOpen = !this.navigationOpen;
     this.document.body.setAttribute("nav-open",this.navigationOpen);
+  }
+
+  isLoggedIn(){
+    return this.profileService.isLoggedIn();
   }
 }

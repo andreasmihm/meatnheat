@@ -14,15 +14,18 @@ export class ProfileComponent implements OnInit {
   signInUserName:string;
   signInPassword:string;
 
-  userPool:any;
+  signUpUserName:string;
+  signUpEmail:string;
+  signUpPassword:string;
 
   ngOnInit() {
-    this.userPool
   }
 
   signIn(){
-    console.log("blub: " + this.signInUserName + " / " + this.signInPassword);
-
     this.profileService.signIn(this.signInUserName,this.signInPassword);
+  }
+
+  signUp(){
+    this.profileService.signUp(this.signUpUserName,this.signInUserName,this.signInPassword);
   }
 }

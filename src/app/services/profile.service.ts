@@ -8,13 +8,14 @@ import {
   CognitoUserAttribute,
   CognitoUserPool,
   ICognitoUserPoolData,
-  ICognitoUserData
+  ICognitoUserData,
+  ICognitoUserAttributeData
 } from 'amazon-cognito-identity-js';
 import * as CognitoIdentity from "aws-sdk/clients/cognitoidentity";
 
 @Injectable()
 export class ProfileService {
-
+  jwtToken:any;
   userPool:CognitoUserPool;
 
   poolData:ICognitoUserPoolData = {
@@ -40,14 +41,27 @@ export class ProfileService {
 
     const cognitoUser:CognitoUser = new CognitoUser(cognitoUserData);
     cognitoUser.authenticateUser(authenticationDetails,{
-      onSuccess: function(result){
+      onSuccess: (result) => {
         console.log('access token + ' + result.getAccessToken().getJwtToken());
+        this.jwtToken = result.getAccessToken().getJwtToken();
       },
-      onFailure: function(error){
+      onFailure: (error) => {
         alert(error);
       }
     });
-    
+  }
+
+  signUp(username:string,email:string,password:string):void{
+    const emailData:ICognitoUserAttributeData = {
+      Name: 'email',
+      Value: email
+    } 
+
+    const emailAttribute:CognitoUserAttribute = new CognitoUserAttribute(emailData);
+  };
+
+  isLoggedIn():boolean {
+    return !!this.jwtToken;
   }
 
 }
