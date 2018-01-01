@@ -12,6 +12,7 @@ import {
   ICognitoUserAttributeData
 } from 'amazon-cognito-identity-js';
 import * as CognitoIdentity from "aws-sdk/clients/cognitoidentity";
+import { CookieService } from "../services/cookie.service";
 
 @Injectable()
 export class ProfileService {
@@ -23,8 +24,11 @@ export class ProfileService {
     ClientId : '5d9sc5ijad1fn4qimlqefb6ar5'
   };
 
-  constructor() {
+  constructor(private cookieService:CookieService) {
     this.userPool = new CognitoUserPool(this.poolData);
+    if(this.cookieService.getCookie("token")){
+      this.jwtToken = this.cookieService.getCookie("token");
+    }
   }
 
   signIn(username:string,password:string):void {
@@ -44,6 +48,7 @@ export class ProfileService {
       onSuccess: (result) => {
         console.log('access token + ' + result.getAccessToken().getJwtToken());
         this.jwtToken = result.getAccessToken().getJwtToken();
+        this.cookieService.setCookie("token",this.jwtToken,365);
       },
       onFailure: (error) => {
         alert(error);

@@ -1,3 +1,7 @@
 <div class="container">
   <h1>Dashboard</h1>
+
+  <ng-container *ngIf="isLoggedIn()">
+    <a routerLink="/createRecipe">Create Recipe</a>
+  </ng-container>
 </div>

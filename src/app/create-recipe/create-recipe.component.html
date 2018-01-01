@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Create Recipe</h1>
+  <h2>General</h2>
+  <input type="text" placeholder="Title" [(ngModel)]="title"><br>
+  <input type="url" placeholder="Bild URL" [(ngModel)]="imageUrl"><br>
+  <input type="number" placeholder="Zubereitungszeit" [(ngModel)]="preperationTime"><br>
+  <input type="number" placeholder="Level(1,2,3)">
+
+  
+  <h2>Ingredients</h2>
+  <div *ngFor="let ingedient of ingredients; let i = index">
+    <input type="number" [(ngModel)]="ingedient.Amount" placeholder="Menge">
+    <input type="text" [(ngModel)]="ingedient.Unit" placeholder="Einheit">
+    <input type="text" [(ngModel)]="ingedient.Name" placeholder="Bezeichnung">
+    <button (click)="removeIngredient(i)">-</button>
+    <br>
+  </div>
+  <button (click)="addIngredient()">+</button>
+
+  <h2>Steps</h2>
+  <div *ngFor="let step of steps; let i = index">
+    <span>{{i + 1}}</span>
+    <input type="text" [(ngModel)]="step.Text" placeholder="Beschreibung">
+    <button (click)="removeStep(i)">-</button>
+    <br>
+  </div>
+  <button (click)="addStep()">+</button>
+
+  <br><br>
+  <button (click)="createRecipe()">Create Recipe</button>
+</div>

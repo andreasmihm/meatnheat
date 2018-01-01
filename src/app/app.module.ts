@@ -9,16 +9,19 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component'
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
 import { SearchService } from './search.service';
 import { ProfileService } from './services/profile.service';
+import { CookieService } from './services/cookie.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    CreateRecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { ProfileService } from './services/profile.service';
   ],
   providers: [
     SearchService,
-    ProfileService
+    ProfileService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
