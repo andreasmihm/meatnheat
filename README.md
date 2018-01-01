@@ -26,7 +26,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 - Dashboard - recently viewed
 - Dashboard - New Recipes (only from the bigger users)
 - Menge der Zutaten pro Person berechnen
-
 - implement Cooking Tutorials
 
 ## Important Notes
