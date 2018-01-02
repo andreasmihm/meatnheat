@@ -63,6 +63,21 @@ export class ProfileService {
     } 
 
     const emailAttribute:CognitoUserAttribute = new CognitoUserAttribute(emailData);
+
+    let attributeList:CognitoUserAttribute[] = [
+      emailAttribute
+    ];
+
+    this.userPool.signUp(username,password,attributeList,null,(error,result) => {
+      console.log(username,password,attributeList);
+      if(error){
+        alert(error);
+      }
+      else {
+        alert("Willkommen! Du hast eine email mit einem Aktivierungslink bekommen");
+      }
+
+    });
   };
 
   isLoggedIn():boolean {

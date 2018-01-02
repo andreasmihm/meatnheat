@@ -27,10 +27,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 - Dashboard - New Recipes (only from the bigger users)
 - Menge der Zutaten pro Person berechnen
 - implement Cooking Tutorials
+- create a new user pool which allows email and phone logins
 
 ## Important Notes
 - Zutaten sollten gruppierbar sein (z.B. Zutaten für die Beilage oder Zutaten für die Soße)
-- Welche Zeiten sind wichtig für den User?
+- Welche Zeitenangaben sind wichtig für den User ?
 
 
 ## Recipe Data Structure

@@ -26,6 +26,6 @@ export class ProfileComponent implements OnInit {
   }
 
   signUp(){
-    this.profileService.signUp(this.signUpUserName,this.signInUserName,this.signInPassword);
+    this.profileService.signUp(this.signUpUserName,this.signUpEmail,this.signUpPassword);
   }
 }
