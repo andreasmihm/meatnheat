@@ -20,7 +20,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Roadmap/Todos
 
-- implement "sign up"
 - refresh jwtToken
 - follow other users
 - Dashboard - recently viewed
@@ -32,6 +31,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Important Notes
 - Zutaten sollten gruppierbar sein (z.B. Zutaten für die Beilage oder Zutaten für die Soße)
 - Welche Zeitenangaben sind wichtig für den User ?
+- Use cognitos "sub" attribute as identifier not "identityid", it should be unique and accessible in all important places (https://docs.aws.amazon.com/de_de/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
 
 
 ## Recipe Data Structure
