@@ -14,6 +14,7 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { SearchService } from './search.service';
 import { ProfileService } from './services/profile.service';
 import { CookieService } from './services/cookie.service';
+import { RecipeService } from './services/recipe.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CookieService } from './services/cookie.service';
   providers: [
     SearchService,
     ProfileService,
-    CookieService
+    CookieService,
+    RecipeService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class SearchService {
@@ -20,7 +20,7 @@ export class SearchService {
         }
       }
     };
-
+    
     return this.http.post('https://search-meatnheat-4h2snfosrsqyslactur7whkfiy.eu-central-1.es.amazonaws.com/recipe/profile/_search?pretty=true', searchRequestBody);
   }
 }

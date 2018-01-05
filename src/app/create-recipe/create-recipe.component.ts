@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { RecipeService } from '../services/recipe.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -8,7 +9,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class CreateRecipeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private recipeService: RecipeService
+  ) { }
 
   title:string;
   imageUrl:string;
@@ -56,6 +59,7 @@ export class CreateRecipeComponent implements OnInit {
   }
 
   createRecipe():void {
+
     const recipe = {
       "title": this.title,
       "imageUrl": this.imageUrl,
@@ -65,5 +69,6 @@ export class CreateRecipeComponent implements OnInit {
     };
 
     console.log("recipe: ",recipe);
+    this.recipeService.createRecipe(recipe);
   }
 }

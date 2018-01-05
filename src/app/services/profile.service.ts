@@ -46,8 +46,8 @@ export class ProfileService {
     const cognitoUser:CognitoUser = new CognitoUser(cognitoUserData);
     cognitoUser.authenticateUser(authenticationDetails,{
       onSuccess: (result) => {
-        console.log('access token + ' + result.getAccessToken().getJwtToken());
-        this.jwtToken = result.getAccessToken().getJwtToken();
+        console.log('access token + ' + result.getIdToken().getJwtToken());
+        this.jwtToken = result.getIdToken().getJwtToken();
         this.cookieService.setCookie("token",this.jwtToken,365);
       },
       onFailure: (error) => {
