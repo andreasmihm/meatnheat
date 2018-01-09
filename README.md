@@ -41,10 +41,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
   "RecipeId|Type": "test_recipe_id|recipe",
   "Title": "test title",
   "UserId": "test_user_id",
-  "User": {
-      "Name": "Max",
-      "Image": "image_url"
-  },
+  "UserName":  "Max",
+  "UserImage": "image_url",
   "Image": "image_url",
   "PreperationTime": in_milliseconds,
   "Difficulty": 1-3,
@@ -67,3 +65,18 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
       }
   ]
 }
+
+## Elastic Search Recipes
+- userid (for faster access)
+- username (display in the search results)
+- userimage (display in the search results)
+- recipeid
+- title
+- image
+
+## User Data for the next user pool
+
+- email and phone logins
+- first name
+- last name
+- picture

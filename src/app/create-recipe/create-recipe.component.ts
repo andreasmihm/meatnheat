@@ -16,6 +16,7 @@ export class CreateRecipeComponent implements OnInit {
   title:string;
   imageUrl:string;
   preperationTime:number;
+  difficulty:number;
 
   ingredients:any = [
     {
@@ -65,7 +66,8 @@ export class CreateRecipeComponent implements OnInit {
       "imageUrl": this.imageUrl,
       "preperationTime": this.preperationTime,
       "Ingredients": this.ingredients,
-      "steps": this.steps
+      "steps": this.steps,
+      "difficulty": this.difficulty
     };
 
     console.log("recipe: ",recipe);
