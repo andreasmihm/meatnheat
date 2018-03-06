@@ -10,7 +10,16 @@ export class RecipeService {
     private profileService: ProfileService
   ) { }
 
-  createRecipe(recipe:any){
+  getRecipe(userid,recipeid):any {
+    const body:any = {
+      'UserId': userid,
+      'RecipeId': recipeid
+    }
+
+    return this.http.post("https://jbfzhbbbkl.execute-api.eu-central-1.amazonaws.com/prod/getrecipe",body);
+  }
+
+  createRecipe(recipe:any):void {
     if(this.profileService.isLoggedIn()){
       const httpOptions = {
         headers: new HttpHeaders({ 

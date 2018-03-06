@@ -76,7 +76,6 @@ export class ProfileService {
       else {
         alert("Willkommen! Du hast eine email mit einem Aktivierungslink bekommen");
       }
-
     });
   };
 

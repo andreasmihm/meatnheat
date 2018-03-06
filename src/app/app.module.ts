@@ -15,6 +15,7 @@ import { SearchService } from './search.service';
 import { ProfileService } from './services/profile.service';
 import { CookieService } from './services/cookie.service';
 import { RecipeService } from './services/recipe.service';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RecipeService } from './services/recipe.service';
     NavigationComponent,
     DashboardComponent,
     ProfileComponent,
-    CreateRecipeComponent
+    CreateRecipeComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,

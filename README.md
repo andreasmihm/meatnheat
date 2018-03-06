@@ -19,8 +19,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Roadmap/Todos
-
+- recipe detail page
+- tool to clear the database and elasicsearch 
 - refresh jwtToken
+- use lowDB to manage your local storage
 - follow other users
 - Dashboard - recently viewed
 - Dashboard - New Recipes (only from the bigger users)
@@ -31,7 +33,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Important Notes
 - Zutaten sollten gruppierbar sein (z.B. Zutaten für die Beilage oder Zutaten für die Soße)
 - Welche Zeitenangaben sind wichtig für den User ?
-- Use cognitos "sub" attribute as identifier not "identityid", it should be unique and accessible in all important places (https://docs.aws.amazon.com/de_de/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
 - das nutzerbild sollte immer am selben pfad liegen damit man sich bei änderungen nicht um ein update der datenbank und aller caches kümmern muss
 (wie geht man damit um wenn der user kein bild hochgeladen hat)
 
