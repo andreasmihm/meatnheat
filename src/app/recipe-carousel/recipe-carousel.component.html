@@ -1,0 +1,8 @@
+<div class="recipe-carousel">
+  <h3>{{getTitle()}}</h3>
+  <div class="overflow-wrapper">
+    <a *ngFor="let entry of getRecipes()" routerLink="/{{entry.UserId}}/{{entry.RecipeId}}">
+      <img [src]="entry.Image">
+    </a>
+  </div>
+</div>
