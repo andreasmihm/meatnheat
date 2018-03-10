@@ -4,7 +4,9 @@
   <div class="top-navigation-search">
     <input type="search" placeholder="search" [(ngModel)]="searchInputValue" (ngModelChange)="searchInput($event)">
     <ul class="search-result-list" style="color: #fff;">
-      <li *ngFor="let entry of searchResults" class="search-result-list-item">{{entry._source.title}}</li>
+      <li *ngFor="let entry of searchResults" class="search-result-list-item">
+        <a routerLink="/{{entry._source.userId}}/{{entry._id}}">{{entry._source.title}}</a>
+      </li>
     </ul>
   </div>
 

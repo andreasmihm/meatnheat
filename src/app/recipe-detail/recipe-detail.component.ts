@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -12,7 +13,8 @@ export class RecipeDetailComponent implements OnInit {
   recipe:any;
 
   constructor(
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -20,9 +22,11 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   requestRecipe(){
-    this.recipeService.getRecipe("fc7e25f0-a91e-4bbd-941d-ed79b98790e6","1516568590567_7823819454475502_912036652144331_19568893761321227").subscribe((data) => {
-      console.log("data:",data);
-      this.recipe = data;
+    this.route.params.subscribe(params => {
+      this.recipeService.getRecipe(params.userId,params.recipeId).subscribe(data => {
+        console.log("loaded recipe details:",data);
+        this.recipe = data;
+      });
     });
   }
 
