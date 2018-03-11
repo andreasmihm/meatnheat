@@ -1,5 +1,13 @@
-img {
-    width: calc(100vw - 5rem);
-    height: calc((100vw - 5rem) * 0.66);
-    object-fit: cover;
+.recipe-detail {
+    img {
+        width: calc(100vw - 5rem);
+        height: calc((100vw - 5rem) * 0.66);
+
+        max-width: 60vh;
+        max-height: 40vh;
+
+        object-fit: cover;
+
+        
+    }
 }
