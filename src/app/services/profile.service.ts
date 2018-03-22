@@ -31,7 +31,7 @@ export class ProfileService {
     }
   }
 
-  signIn(username:string,password:string):void {
+  signIn(username:string,password:string,failure,success):void {
     const authenticationData:IAuthenticationDetailsData = {
       Username: username,
       Password: password
@@ -49,14 +49,16 @@ export class ProfileService {
         console.log('access token + ' + result.getIdToken().getJwtToken());
         this.jwtToken = result.getIdToken().getJwtToken();
         this.cookieService.setCookie("token",this.jwtToken,365);
+        success();
       },
       onFailure: (error) => {
         alert(error);
+        failure();
       }
     });
   }
 
-  signUp(username:string,email:string,password:string):void{
+  signUp(username:string,email:string,password:string,failure,success):void{
     const emailData:ICognitoUserAttributeData = {
       Name: 'email',
       Value: email
@@ -72,9 +74,11 @@ export class ProfileService {
       console.log(username,password,attributeList);
       if(error){
         alert(error);
+        failure();
       }
       else {
         alert("Willkommen! Du hast eine email mit einem Aktivierungslink bekommen");
+        success();
       }
     });
   };

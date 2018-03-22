@@ -10,6 +10,12 @@ html,body {
   font-family: 'Barlow', sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 /* navigation related */
 
@@ -28,4 +34,36 @@ html,body {
 
 .container {
   margin: 2.5rem;
+}
+
+/* forms */
+
+.form {
+  .form-input {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  input[type=text].form-input,
+  input[type=number].form-input,
+  input[type=password].form-input {
+    border: 1px solid #727272;
+    padding: 0 10px;
+    line-height: 3;
+    outline: none;
+  }
+  button.form-input {
+    cursor: pointer;
+    background-color: #333333;
+    color: white;
+    border: 0;
+    padding: 0;
+    line-height: 4;
+    
+    &:active,
+    &:hover,
+    &:focus {
+      background-color: #727272;
+      outline: none;
+    }
+  }
 }
