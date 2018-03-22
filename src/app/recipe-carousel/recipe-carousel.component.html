@@ -1,8 +1,8 @@
 <h3>{{getTitle()}}</h3>
 <div class="recipe-carousel">
   <div class="overflow-wrapper">
-    <a *ngFor="let entry of getRecipes()" routerLink="/{{entry.UserId}}/{{entry.RecipeId}}">
-      <img [src]="entry.Image">
+    <a *ngFor="let entry of getRecipes()" routerLink="/{{entry._source.userId}}/{{entry._id}}">
+      <img [src]="entry._source.image">
     </a>
   </div>
 </div>

@@ -1,0 +1,118 @@
+.general {
+    float: left;
+    clear: both; 
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.general-form {
+    width: 500px;
+    float: left;
+}
+
+.general-image {
+    img {
+        width: 255px;
+        height: 170px;
+        object-fit: cover;
+        margin-left: 15px;
+    }
+}
+
+.inc {
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-bottom: 30px;
+}
+
+.inc-form {
+    width: 770px;
+    .form-input {
+        float: left;
+        margin-right: 14px;
+    }
+
+    .form-input.amount {
+        width: 50px;
+    }
+    .form-input.unit {
+        width: 120px;
+    }
+    .form-input.name {
+        width: 500px;
+    }
+    .form-input.remove {
+        width: 50px;
+        line-height: 3;
+        border-top: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        margin-right: 0;
+    }
+    .form-input.add {
+        width: 50px;
+        line-height: 3;
+        border-top: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+    }
+}
+
+.step {
+    float: left;
+    clear: both; 
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.step-form {
+    width: 770px;
+
+    .index {
+        display: inline-block;
+        text-align: center;
+        line-height: 3;
+        width: 50px;
+        margin-right: 15px;
+    }
+    .form-input.text {
+        width: 620px;
+        margin-right: 15px;
+    }
+    .form-input.remove {
+        width: 50px;
+        line-height: 3;
+        border-top: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        margin-right: 0;
+    }
+    .form-input.add {
+        width: 50px;
+        line-height: 3;
+        border-top: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+    }
+}  
+
+
+.submit {
+    float: left;
+    clear: both; 
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.submit-form {
+    width: 760px;
+
+    button {
+        width: 200px !important;
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+        float: right;
+    }
+}
+
+.loading-container {
+    width: 550px;
+    float: left;
+}

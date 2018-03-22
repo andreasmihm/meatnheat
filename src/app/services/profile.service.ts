@@ -18,6 +18,7 @@ import { CookieService } from "../services/cookie.service";
 export class ProfileService {
   jwtToken:any;
   userPool:CognitoUserPool;
+  username:string;
 
   poolData:ICognitoUserPoolData = {
     UserPoolId : 'eu-central-1_LaVer2K0o',
@@ -29,9 +30,12 @@ export class ProfileService {
     if(this.cookieService.getCookie("token")){
       this.jwtToken = this.cookieService.getCookie("token");
     }
+    if(localStorage.getItem("username")){
+      this.username = localStorage.getItem("username");
+    }
   }
 
-  signIn(username:string,password:string):void {
+  signIn(username:string,password:string,failure,success):void {
     const authenticationData:IAuthenticationDetailsData = {
       Username: username,
       Password: password
@@ -47,16 +51,20 @@ export class ProfileService {
     cognitoUser.authenticateUser(authenticationDetails,{
       onSuccess: (result) => {
         console.log('access token + ' + result.getIdToken().getJwtToken());
+        this.username = username;
+        localStorage.setItem("username",this.username);
         this.jwtToken = result.getIdToken().getJwtToken();
         this.cookieService.setCookie("token",this.jwtToken,365);
+        success();
       },
       onFailure: (error) => {
         alert(error);
+        failure();
       }
     });
   }
 
-  signUp(username:string,email:string,password:string):void{
+  signUp(username:string,email:string,password:string,failure,success):void{
     const emailData:ICognitoUserAttributeData = {
       Name: 'email',
       Value: email
@@ -72,15 +80,21 @@ export class ProfileService {
       console.log(username,password,attributeList);
       if(error){
         alert(error);
+        failure();
       }
       else {
         alert("Willkommen! Du hast eine email mit einem Aktivierungslink bekommen");
+        success();
       }
     });
   };
 
   isLoggedIn():boolean {
     return !!this.jwtToken;
+  }
+
+  getUsername():string {
+    return this.username || "";
   }
 
 }

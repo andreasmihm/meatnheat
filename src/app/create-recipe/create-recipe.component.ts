@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-create-recipe',
@@ -10,13 +11,15 @@ import { RecipeService } from '../services/recipe.service';
 export class CreateRecipeComponent implements OnInit {
 
   constructor(
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private router: Router
   ) { }
 
   title:string;
   imageUrl:string;
   preperationTime:number;
   difficulty:number;
+  isLoading:boolean = false;
 
   ingredients:any = [
     {
@@ -71,6 +74,15 @@ export class CreateRecipeComponent implements OnInit {
     };
 
     console.log("recipe: ",recipe);
-    this.recipeService.createRecipe(recipe);
+    this.isLoading = true;
+    this.recipeService.createRecipe(recipe,() => {
+      this.isLoading = false;
+    },() => {
+      // workaround / w8 for the elastic search sync
+      setTimeout(() => {
+        this.isLoading = false;
+        this.router.navigateByUrl("/");
+      },2500);
+    });
   }
 }

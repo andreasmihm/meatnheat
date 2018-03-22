@@ -36,17 +36,21 @@
 // desktop dropdown
 .top-navigation-search {
   position: relative;
+  float: right;
 
   .search-result-list {
     position: absolute;
     z-index: 10000;
     margin: 0;
     padding: 0;
+    right: 0;
+    widows: 300px;
 
     list-style: none;
 
     &-item {
       background-color: #000000;
+      white-space: nowrap;
 
       span {
         line-height: 40px;
