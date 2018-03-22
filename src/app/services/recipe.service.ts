@@ -16,7 +16,7 @@ export class RecipeService {
       'RecipeId': recipeid
     }
 
-    return this.http.post("https://jbfzhbbbkl.execute-api.eu-central-1.amazonaws.com/prod/getrecipe",body);
+    return this.http.post("https://d6unnq9nxg.execute-api.eu-central-1.amazonaws.com/prod/getrecipe",body);
   }
 
   createRecipe(recipe:any,failure,success):void {
@@ -32,7 +32,7 @@ export class RecipeService {
         'recipe': recipe
       };
       
-      this.http.put("https://jbfzhbbbkl.execute-api.eu-central-1.amazonaws.com/prod/createrecipe",body,httpOptions).subscribe(data => {
+      this.http.put("https://d6unnq9nxg.execute-api.eu-central-1.amazonaws.com/prod/createrecipe",body,httpOptions).subscribe(data => {
         console.log("createRecipeResponce: ",data);
         success();
       },(error) => {

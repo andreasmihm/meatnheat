@@ -21,6 +21,6 @@ export class SearchService {
       }
     };
     
-    return this.http.post('https://search-meatnheat-4h2snfosrsqyslactur7whkfiy.eu-central-1.es.amazonaws.com/recipe/profile/_search?pretty=true', searchRequestBody);
+    return this.http.post('https://search-search-meatnheat-sc5lodalj7nndvywykcdhe4mem.eu-central-1.es.amazonaws.com/recipeidx/profile/_search?pretty=true', searchRequestBody);
   }
 }

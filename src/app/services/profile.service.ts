@@ -21,8 +21,8 @@ export class ProfileService {
   username:string;
 
   poolData:ICognitoUserPoolData = {
-    UserPoolId : 'eu-central-1_LaVer2K0o',
-    ClientId : '5d9sc5ijad1fn4qimlqefb6ar5'
+    UserPoolId : 'eu-central-1_vFzhhe10E',
+    ClientId : '5od63rjfn6pq6hrlfg14ovqkjt'
   };
 
   constructor(private cookieService:CookieService) {
