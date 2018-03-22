@@ -41,4 +41,10 @@ export class NavigationComponent implements OnInit {
   isLoggedIn(){
     return this.profileService.isLoggedIn();
   }
+
+  getUserName(){
+    let username:string = this.profileService.getUsername()
+    username = username.charAt(0).toUpperCase() + username.slice(1);
+    return username;
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
+import { SearchService } from './../search.service';
 @Component({
   selector: 'app-recipe-carousel',
   templateUrl: './recipe-carousel.component.html',
@@ -8,7 +8,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class RecipeCarouselComponent implements OnInit {
 
-  constructor() { }
+  constructor(private searchservice:SearchService) { }
 
   recipes:any[];
   title:string;
@@ -16,6 +16,7 @@ export class RecipeCarouselComponent implements OnInit {
   ngOnInit() {
     // mock data
     this.title = "Recommended For Your"
+    /*
     this.recipes = [
       {
         "UserId": "fc7e25f0-a91e-4bbd-941d-ed79b98790e6",
@@ -48,6 +49,12 @@ export class RecipeCarouselComponent implements OnInit {
         "Image": "https://www.digitalphotomentor.com/photography/2014/10/food-photography-french-toast-nicole-young.jpg"
       }
     ]
+    */
+
+    this.searchservice.processSearch("*").subscribe(data => {
+      this.recipes = data["hits"]["hits"].reverse();
+      console.log(this.recipes);
+  });
   }
 
   getRecipes(){

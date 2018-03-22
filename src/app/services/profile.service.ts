@@ -18,6 +18,7 @@ import { CookieService } from "../services/cookie.service";
 export class ProfileService {
   jwtToken:any;
   userPool:CognitoUserPool;
+  username:string;
 
   poolData:ICognitoUserPoolData = {
     UserPoolId : 'eu-central-1_LaVer2K0o',
@@ -28,6 +29,9 @@ export class ProfileService {
     this.userPool = new CognitoUserPool(this.poolData);
     if(this.cookieService.getCookie("token")){
       this.jwtToken = this.cookieService.getCookie("token");
+    }
+    if(localStorage.getItem("username")){
+      this.username = localStorage.getItem("username");
     }
   }
 
@@ -47,6 +51,8 @@ export class ProfileService {
     cognitoUser.authenticateUser(authenticationDetails,{
       onSuccess: (result) => {
         console.log('access token + ' + result.getIdToken().getJwtToken());
+        this.username = username;
+        localStorage.setItem("username",this.username);
         this.jwtToken = result.getIdToken().getJwtToken();
         this.cookieService.setCookie("token",this.jwtToken,365);
         success();
@@ -85,6 +91,10 @@ export class ProfileService {
 
   isLoggedIn():boolean {
     return !!this.jwtToken;
+  }
+
+  getUsername():string {
+    return this.username || "";
   }
 
 }

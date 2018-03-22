@@ -1,6 +1,9 @@
 <div class="top-navigation">
   <a class="top-navigation-item" routerLink="/">Home</a>
-  <a class="top-navigation-item" routerLink="/profile">Profile:{{isLoggedIn()}}</a>
+  <a class="top-navigation-item" routerLink="/profile">
+    <span *ngIf="!isLoggedIn()">Profile</span>
+    <span *ngIf="isLoggedIn()">{{getUserName()}}</span>
+  </a>
   <div class="top-navigation-search">
     <input type="search" placeholder="search" [(ngModel)]="searchInputValue" (ngModelChange)="searchInput($event)">
     <ul class="search-result-list" style="color: #fff;">
@@ -12,12 +15,13 @@
       </li>
     </ul>
   </div>
-
+  <!--
   <a class="top-navigation-burger" (click)="toggleMenu()">=</a>
 
   <div class="side-navigation">
     <a class="top-navigation-item" routerLink="/">Home</a>
     <a class="top-navigation-item" routerLink="/profile">Profile</a>
   </div>
+  -->
 </div>
 
