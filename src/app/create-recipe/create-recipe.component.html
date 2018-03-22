@@ -1,31 +1,51 @@
 <div class="container">
   <h1>Create Recipe</h1>
   <h2>General</h2>
-  <input type="text" placeholder="Title" [(ngModel)]="title"><br>
-  <input type="url" placeholder="Bild URL" [(ngModel)]="imageUrl"><br>
-  <input type="number" placeholder="Zubereitungszeit" [(ngModel)]="preperationTime"><br>
-  <input type="number" placeholder="Schwierigkeit(1,2,3)" [(ngModel)]="difficulty">
-
+  <div class="general">
+    <div class="form general-form">
+      <input class="form-input" type="text" placeholder="Title" [(ngModel)]="title"><br>
+      <input class="form-input" type="url" placeholder="Bild URL" [(ngModel)]="imageUrl"><br>
+      <input class="form-input" type="number" placeholder="Zubereitungszeit" [(ngModel)]="preperationTime"><br>
+      <input class="form-input" type="number" placeholder="Schwierigkeit(1,2,3)" [(ngModel)]="difficulty">
+    </div>
+    <div class="general-image">
+      <img [src]="imageUrl">
+    </div>
+  </div>
   
-  <h2>Ingredients</h2>
-  <div *ngFor="let ingedient of ingredients; let i = index">
-    <input type="number" [(ngModel)]="ingedient.Amount" placeholder="Menge">
-    <input type="text" [(ngModel)]="ingedient.Unit" placeholder="Einheit">
-    <input type="text" [(ngModel)]="ingedient.Name" placeholder="Bezeichnung">
-    <button (click)="removeIngredient(i)">-</button>
-    <br>
+  <div class="inc">
+    <div class="form inc-form">
+      <h2>Ingredients</h2>
+      <div *ngFor="let ingedient of ingredients; let i = index">
+        <input class="form-input amount" type="number" [(ngModel)]="ingedient.Amount" placeholder="Menge">
+        <input class="form-input unit" type="text" [(ngModel)]="ingedient.Unit" placeholder="Einheit">
+        <input class="form-input name" type="text" [(ngModel)]="ingedient.Name" placeholder="Bezeichnung">
+        <button class="form-input remove" (click)="removeIngredient(i)">-</button>
+        <br>
+      </div>
+      <button class="form-input add" (click)="addIngredient()">+</button>
+    </div>
   </div>
-  <button (click)="addIngredient()">+</button>
 
-  <h2>Steps</h2>
-  <div *ngFor="let step of steps; let i = index">
-    <span>{{i + 1}}</span>
-    <input type="text" [(ngModel)]="step.Text" placeholder="Beschreibung">
-    <button (click)="removeStep(i)">-</button>
-    <br>
+  <div class="step">
+    <div class="form step-form">
+      <h2>Steps</h2>
+      <div *ngFor="let step of steps; let i = index">
+        <span class="index">{{i + 1}}</span>
+        <input class="form-input text" type="text" [(ngModel)]="step.Text" placeholder="Beschreibung">
+        <button class="form-input remove" (click)="removeStep(i)">-</button>
+        <br>
+      </div>
+      <button class="form-input add" (click)="addStep()">+</button>
+    </div>
   </div>
-  <button (click)="addStep()">+</button>
 
-  <br><br>
-  <button (click)="createRecipe()">Create Recipe</button>
+  <div class="submit">
+    <div class="form submit-form">
+      <div class="loading-container">
+        <app-loading *ngIf="isLoading"></app-loading>
+      </div>
+      <button class="form-input" (click)="createRecipe()">Create Recipe</button>
+    </div>
+  </div>
 </div>

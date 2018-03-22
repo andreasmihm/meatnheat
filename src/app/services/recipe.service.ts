@@ -19,7 +19,7 @@ export class RecipeService {
     return this.http.post("https://jbfzhbbbkl.execute-api.eu-central-1.amazonaws.com/prod/getrecipe",body);
   }
 
-  createRecipe(recipe:any):void {
+  createRecipe(recipe:any,failure,success):void {
     if(this.profileService.isLoggedIn()){
       const httpOptions = {
         headers: new HttpHeaders({ 
@@ -34,6 +34,12 @@ export class RecipeService {
       
       this.http.put("https://jbfzhbbbkl.execute-api.eu-central-1.amazonaws.com/prod/createrecipe",body,httpOptions).subscribe(data => {
         console.log("createRecipeResponce: ",data);
+        success();
+      },(error) => {
+        // error  
+        alert(error.error.message);
+        console.log("error");
+        failure();
       });
     }
     else {
